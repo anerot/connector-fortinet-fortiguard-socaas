@@ -5,11 +5,13 @@ Copyright (c) 2024 Fortinet Inc
 Copyright end
 """
 
-import json
+import json, base64
 from .forticloud_auth import SOCaaS, check
 from connectors.core.connector import get_logger, ConnectorError
+from integrations.crudhub import make_request, make_file_upload_request
+from connectors.cyops_utilities.builtins import upload_file_to_cyops
 
-logger = get_logger('fortinet-fortiguard-socaas')
+logger = get_logger('fortiguard-socaas')
 
 def get_alert_list(config, params=None):
     co = SOCaaS(config)
@@ -75,7 +77,25 @@ def download_attachment_and_report(config, params=None):
     query_params = {}
     query_params['module'] = params.get('module')
     query_params['file-portal-uuid'] = params.get('file-portal-uuid')
-    return co.make_rest_call(endpoint, 'GET', params=query_params)
+    result = co.make_rest_call(endpoint, 'GET', params=query_params)
+    if result.get('file_content'):
+        result['file_content'] = result.get('file_content').encode('ascii')
+        result['file_content'] = base64.b64decode(result.get('file_content'))
+        response = _upload_file_to_cyops(result['filename'], result['file_content'], result['content_type'])
+    return response
+
+def _upload_file_to_cyops(file_name, file_content, file_type=None, description=None):
+    try:
+        response = make_file_upload_request(file_name, file_content, file_type)
+        file_id = response['@id']
+        file_description = description if description else 'Downloaded from SOCaaS'
+        attach_response = make_request('/api/3/attachments', 'POST',
+                                       {'name': file_name, 'file': file_id,
+                                        'description': file_description})
+        return attach_response
+    except Exception as err:
+        logger.exception(str(err))
+        raise ConnectorError(str(err))
 
 def get_list_service_request(config, params=None):
     co = SOCaaS(config)
