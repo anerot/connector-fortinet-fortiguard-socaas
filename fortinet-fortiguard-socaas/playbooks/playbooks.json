@@ -1,0 +1,1508 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - FortiGuard SOCaaS - 1.0.0",
+      "description": "Sample playbooks for \"FortiGuard SOCaaS\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": null,
+      "uuid": "04171a1c-718b-4039-a2aa-fbc52a23cdac",
+      "id": 415,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [
+        "fortiguard-socaas",
+        "Fortinet"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Client List",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1775919074,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7a162487-f2f9-4678-94b7-e9230ec03ce3",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Client List",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_client_list",
+                "operationTitle": "MSSP Clients - Get Client List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "bca2d224-0c97-4528-a25b-6a75bcc3f625"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "7a162487-f2f9-4678-94b7-e9230ec03ce3"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/bca2d224-0c97-4528-a25b-6a75bcc3f625",
+              "sourceStep": "/api/3/workflow_steps/7a162487-f2f9-4678-94b7-e9230ec03ce3",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "ebdcaa51-693a-4ca3-a474-40c04af1e9f6"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "0849d54b-905a-49ad-ad5f-436ed831bfb5",
+          "id": 4699,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alert List",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1775918257,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/470f1d16-8792-4680-a5a7-68773062781f",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alert List",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_alert_list",
+                "operationTitle": "Alert - Get Alert List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "761d1f03-5e77-483a-a144-fe27ce1fe685"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "470f1d16-8792-4680-a5a7-68773062781f"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/761d1f03-5e77-483a-a144-fe27ce1fe685",
+              "sourceStep": "/api/3/workflow_steps/470f1d16-8792-4680-a5a7-68773062781f",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "f0e5fa92-7d90-47c2-87db-3d135eafbe87"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "16483906-6e52-4e74-852f-113991ce3f71",
+          "id": 4686,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List of Reports for a Client",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "clientuuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775919033,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3402f620-5125-42b2-80c9-3d708a470ad8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List of Reports for a Client",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "clientuuid": "{{vars.input.params.clientuuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_list_reports_client",
+                "operationTitle": "Report - Get List of Reports for a Client",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "89d81468-a160-490b-95f6-453c53848a87"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "3402f620-5125-42b2-80c9-3d708a470ad8"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/89d81468-a160-490b-95f6-453c53848a87",
+              "sourceStep": "/api/3/workflow_steps/3402f620-5125-42b2-80c9-3d708a470ad8",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "fa471a6b-8f91-415b-bd19-520f15752147"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "166f8b1d-1e77-4a60-9cc0-a609100b46ec",
+          "id": 4698,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Generic API Call",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "httpmethod",
+            "endpoint"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775919242,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c0106ce4-2811-4af9-b4e2-8e8b79c3605e",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Generic API Call",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "data": "",
+                  "method": "{{vars.input.params.httpmethod}}",
+                  "endpoint": "{{vars.input.params.endpoint}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "generic_api_call",
+                "operationTitle": "Generic API Call",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "61eceedd-fd7a-472c-842c-7c4c6344188e"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "c0106ce4-2811-4af9-b4e2-8e8b79c3605e"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/61eceedd-fd7a-472c-842c-7c4c6344188e",
+              "sourceStep": "/api/3/workflow_steps/c0106ce4-2811-4af9-b4e2-8e8b79c3605e",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "cc402d29-77b4-4507-82f2-31dcc4b87933"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "3483149e-abc1-4c19-9ca2-91a94bbdd236",
+          "id": 4701,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get PreOnboarding Info",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1775919124,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/537b57fc-56c2-4208-b983-bb2ea18a10b8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get PreOnboarding Info",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_preonboarding_info",
+                "operationTitle": "MSSP Clients Onboarding - Get pre-onboarding Info",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "cf7775bf-a3df-4e7d-b1ac-0a99322ac1bf"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "537b57fc-56c2-4208-b983-bb2ea18a10b8"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/cf7775bf-a3df-4e7d-b1ac-0a99322ac1bf",
+              "sourceStep": "/api/3/workflow_steps/537b57fc-56c2-4208-b983-bb2ea18a10b8",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "879a4ec5-1712-4c19-8551-45d319387cc8"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "38871952-0d6b-46b8-bbf8-50a8ff8ac46f",
+          "id": 4700,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Comment List",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "uuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918444,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/3f35e346-b285-47f2-9a72-26d964c5c5a1",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Comment List",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "uuid": "{{vars.input.params.uuid}}",
+                  "module": "alerts"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_comment_list",
+                "operationTitle": "Comment - Get Comment List",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "150b0902-4c20-4a51-92fd-2384effffe2a"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "3f35e346-b285-47f2-9a72-26d964c5c5a1"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/150b0902-4c20-4a51-92fd-2384effffe2a",
+              "sourceStep": "/api/3/workflow_steps/3f35e346-b285-47f2-9a72-26d964c5c5a1",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "8b31d0be-a052-4f4d-8bd5-2f4c516c9c63"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "47f2aad3-a8ef-4f55-8110-0ac06fe51133",
+          "id": 4690,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Details of Service Request UUID",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "serviceRequestUuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918886,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bb592587-7c77-4f7a-a0f5-3a227a98abad",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Details of Service Request UUID",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "service_request_uuid": "{{vars.input.params.serviceRequestUuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_details_service_request",
+                "operationTitle": "SR - Get Details of Service Requests UUID",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2adc533c-0794-443f-8f23-faaab7dcd24f"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "bb592587-7c77-4f7a-a0f5-3a227a98abad"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/2adc533c-0794-443f-8f23-faaab7dcd24f",
+              "sourceStep": "/api/3/workflow_steps/bb592587-7c77-4f7a-a0f5-3a227a98abad",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "2de78714-a404-4319-8d56-9ddc04c353e4"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "4e3c0f8c-80f1-41cc-bc26-7fb9eb9bf200",
+          "id": 4695,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List of Service Requests",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1775918647,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/121cf472-1709-4f83-8d79-ff66a647273e",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List of Service Requests",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_list_service_request",
+                "operationTitle": "SR - Get List of Service Requests",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "e50f50a1-0f8f-4f4e-a3cd-f3ff5f5c7581"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "121cf472-1709-4f83-8d79-ff66a647273e"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/e50f50a1-0f8f-4f4e-a3cd-f3ff5f5c7581",
+              "sourceStep": "/api/3/workflow_steps/121cf472-1709-4f83-8d79-ff66a647273e",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "8a7da190-b239-4132-b6e4-043d0fa2c830"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "58525f21-d211-42f9-8b89-77761c17cc0a",
+          "id": 4693,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Download Attachment and Report",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "filePortalUuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918604,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4e23dadc-6143-4666-8a5a-9f00d57512ad",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Download Attachment and Report",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "module": "attachment",
+                  "file-portal-uuid": "{{vars.input.params.filePortalUuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "download_attachment_and_report",
+                "operationTitle": "Download Attachment and Report",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "c96e0457-d8ac-4485-9312-58f8d7d0e326"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "4e23dadc-6143-4666-8a5a-9f00d57512ad"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/c96e0457-d8ac-4485-9312-58f8d7d0e326",
+              "sourceStep": "/api/3/workflow_steps/4e23dadc-6143-4666-8a5a-9f00d57512ad",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "28edf839-32bb-4f03-8f09-72f8c42b1a0c"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "5d8b230b-2053-4f65-be9a-367bdeee53a5",
+          "id": 4692,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create a Service Requests",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "title",
+            "notification"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918733,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/66bde5c6-be87-4ab3-a0d7-f5dc20d23e59",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create a Service Requests",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "data": "{\"attachment_files\":[{\"content_type\":\"string\",\"file_content\":[0],\"filename\":\"string\"}],\"client_name\":\"string\",\"notes\":\"string\",\"translated_notes\":\"string\",\"translated_title\":\"string\"}",
+                  "type": "devicedecommissioning",
+                  "title": "{{vars.input.params.title}}",
+                  "notification": "{{vars.input.params.notification}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "create_service_request",
+                "operationTitle": "SR - Create a Service Requests",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "afe1837e-1ce3-4ddf-9e38-a230342aa633"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "66bde5c6-be87-4ab3-a0d7-f5dc20d23e59"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/afe1837e-1ce3-4ddf-9e38-a230342aa633",
+              "sourceStep": "/api/3/workflow_steps/66bde5c6-be87-4ab3-a0d7-f5dc20d23e59",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "f76f3890-8ae8-43f4-b444-831e0d2579de"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "5dc80f05-860c-42c4-ab77-a5d707d4400e",
+          "id": 4694,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alert Client UUID",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "clientuuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918364,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/5d253cb4-7c47-444f-94b6-92a6a646cfac",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alert Client UUID",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "clientuuid": "{{vars.input.params.clientuuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_alert_list_clientuuid",
+                "operationTitle": "Alert - Get Alert Client UUID",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "6e76b50e-378e-46d2-867e-d7a232ae2426"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "5d253cb4-7c47-444f-94b6-92a6a646cfac"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/6e76b50e-378e-46d2-867e-d7a232ae2426",
+              "sourceStep": "/api/3/workflow_steps/5d253cb4-7c47-444f-94b6-92a6a646cfac",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "6d69e9ce-911b-46fd-83bf-590cb6d3ae4b"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "67f4adeb-4e38-4260-b3d0-e5da4c915320",
+          "id": 4689,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Alert UUID",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "alertuuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918304,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a5008fd2-bf40-4337-a775-fa40a9d247c0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "a5008fd2-bf40-4337-a775-fa40a9d247c0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Alert UUID",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "status": "inprogress",
+                  "alertuuid": "{{vars.input.params.alertuuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "update_alert_status",
+                "operationTitle": "Alert - Update Alert Status",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "efb7d71f-26a7-4ee5-a478-7db7ce13f8fa"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/efb7d71f-26a7-4ee5-a478-7db7ce13f8fa",
+              "sourceStep": "/api/3/workflow_steps/a5008fd2-bf40-4337-a775-fa40a9d247c0",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "d51a4eb6-06b1-4f8a-b651-12f8e11f616c"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "841213af-3df0-430a-bbdb-08be083683a6",
+          "id": 4688,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List of Service Request for ClientUUID",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "clientuuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918948,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7ccb90be-a7bd-462e-a2f8-7a79bd410d6d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List of Service Request for ClientUUID",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "clientuuid": "{{vars.input.params.clientuuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_client_service_request",
+                "operationTitle": "SR - Get List of Service Requests for ClientUUID",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "4b8127d3-1b5a-44da-9ec3-283f2f04763c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "7ccb90be-a7bd-462e-a2f8-7a79bd410d6d"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/4b8127d3-1b5a-44da-9ec3-283f2f04763c",
+              "sourceStep": "/api/3/workflow_steps/7ccb90be-a7bd-462e-a2f8-7a79bd410d6d",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "b02dd2c8-2993-4c36-b2c9-9629590f5754"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "a42adc78-578b-41f7-b601-6b81f960540e",
+          "id": 4696,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Create Comment",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "uuid",
+            "comment"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918502,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d926b181-c2d2-4973-96f5-178682db4e55",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Comment",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "tag": "",
+                  "uuid": "{{vars.input.params.uuid}}",
+                  "module": "alerts",
+                  "comment": "{{vars.input.params.comment}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "create_comment",
+                "operationTitle": "Comment - Create Comment",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3cd6972b-78fb-4f99-8d2c-1763188696af"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "d926b181-c2d2-4973-96f5-178682db4e55"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/3cd6972b-78fb-4f99-8d2c-1763188696af",
+              "sourceStep": "/api/3/workflow_steps/d926b181-c2d2-4973-96f5-178682db4e55",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "fc4fe9ce-eda2-46fe-89e2-de22b445f403"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "c0a36008-1c58-475b-a7fb-5647cd3e8154",
+          "id": 4691,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alert UUID",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "alertuuid"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1775918242,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/77df84cd-c460-44cf-b1ed-8fc7b9d6fe4a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alert UUID",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": {
+                  "alertuuid": "{{vars.input.params.alertuuid}}"
+                },
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_alert_uuid",
+                "operationTitle": "Alert - Get Alert UUID",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2005d264-7949-471c-9aa7-57c5702d3d5f"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "77df84cd-c460-44cf-b1ed-8fc7b9d6fe4a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/2005d264-7949-471c-9aa7-57c5702d3d5f",
+              "sourceStep": "/api/3/workflow_steps/77df84cd-c460-44cf-b1ed-8fc7b9d6fe4a",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "0f47b1b6-0cd2-4822-b76c-9a67a691def2"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "d6439e9b-75f9-49f7-a85b-84b028f42a85",
+          "id": 4687,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get List of Reports",
+          "aliasName": null,
+          "tag": "#FortiGuard SOCaaS",
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1775918981,
+          "collection": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/6ec48238-654c-40ca-81f0-8bb0b52aad0a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get List of Reports",
+              "description": null,
+              "arguments": {
+                "name": "FortiGuard SOCaaS",
+                "config": "dc6dd5ca-654e-480b-ac69-f27602d5cff5",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "fortiguard-socaas",
+                "operation": "get_list_reports",
+                "operationTitle": "Report - Get List of Reports",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "90ef3cd1-461d-4ae6-816c-53d6ca211f42"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "6ec48238-654c-40ca-81f0-8bb0b52aad0a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alert List",
+              "targetStep": "/api/3/workflow_steps/90ef3cd1-461d-4ae6-816c-53d6ca211f42",
+              "sourceStep": "/api/3/workflow_steps/6ec48238-654c-40ca-81f0-8bb0b52aad0a",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "b3251c78-a325-4ac7-b66b-fdf36ee7bf74"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "dc9ea666-e4a2-4151-9c33-85ed1128988e",
+          "id": 4697,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "fortiguard-socaas",
+            "Fortinet"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "fortiguard-socaas",
+    "Fortinet"
+  ]
+}
