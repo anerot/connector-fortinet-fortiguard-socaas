@@ -1,0 +1,575 @@
+{
+    "name": "fortiguard-socaas",
+    "version": "1.0.0",
+    "label": "FortiGuard SOCaaS",
+    "description": "SOCaaS helps organizations detect threats earlier, respond faster, and strengthen their security posture. By offloading operational complexity, SOCaaS enables security teams to focus on strategic priorities while maintaining continuous protection across their environments.",
+    "publisher": "ArnaudN",
+    "icon_small_name": "small.png",
+    "icon_large_name": "large.png",
+    "configuration": {
+        "fields": [
+            {
+                "title": "Server URL",
+                "type": "text",
+                "name": "server",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "https://socaas.mss.fortinet.com"
+            },
+            {
+                "title": "API ID",
+                "type": "text",
+                "name": "username",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "tooltip": "Example: 24D9F0FD-0CCB-4D8E-ABCD-0123456789AB"
+            },
+            {
+                "title": "Password",
+                "type": "password",
+                "name": "password",
+                "required": true,
+                "visible": true,
+                "editable": true
+            },
+            {
+                "title": "Client ID",
+                "type": "text",
+                "name": "client_id",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "socaas",
+                "tooltip": "Example: socaas"
+            },
+            {
+                "title": "Verify SSL",
+                "type": "checkbox",
+                "name": "verify_ssl",
+                "required": false,
+                "visible": true,
+                "editable": true
+            }
+        ]
+    },
+    "operations": [
+        {
+            "operation": "get_alert_list",
+            "title": "Alert - Get Alert List",
+            "description": "GetAlertList handler retrieve alert list with status must NOT be new, investigating, false positive, closed immature, escalated_to_incident must be yes and SLA must be missed or met.",
+            "category": "investigation",
+            "annotation": "get_alert_list",
+            "parameters": [
+                {
+                    "title": "alert_id",
+                    "type": "text",
+                    "name": "alert_id",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 62691"
+                },
+                {
+                    "title": "created_date_from",
+                    "type": "text",
+                    "name": "created_date_from",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 2025-10-01T00:00:00Z"
+                },
+                {
+                    "title": "created_date_to",
+                    "type": "text",
+                    "name": "created_date_to",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 2025-11-01T00:00:00Z"
+                }
+            ],
+            "enabled": true,
+            "output_schema": {
+                "result": {
+                    "data": [
+                        {
+                            "affected_endpoint": "string",
+                            "analysis_recommendation": "string",
+                            "client_name": "string",
+                            "client_uuid": "string",
+                            "closure_notes": "string",
+                            "created_date": "string",
+                            "description": "string",
+                            "escalation_path": "string",
+                            "fc_account_id": 0,
+                            "fc_client_name": "string",
+                            "id": 0,
+                            "modified_date": "string",
+                            "mssp_fc_account_id": 0,
+                            "name": "string",
+                            "self_fc_account_id": 0,
+                            "severity": "string",
+                            "sla": "string",
+                            "status": "string",
+                            "type": "string",
+                            "uuid": "string"
+                        }
+                    ],
+                    "errorArr": [
+                        {
+                            "code": 0,
+                            "desc": "string",
+                            "name": "string"
+                        }
+                    ],
+                    "status": 0
+                }
+            },
+            "open": false
+        },
+        {
+            "operation": "get_alert_uuid",
+            "title": "Alert - Get Alert UUID",
+            "description": "Returns the details of an alert",
+            "category": "investigation",
+            "annotation": "get_alert_uuid",
+            "parameters": [
+                {
+                    "title": "alertuuid",
+                    "type": "text",
+                    "name": "alertuuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "update_alert_status",
+            "title": "Alert - Update Alert Status",
+            "description": "Updates the details of an alert",
+            "category": "investigation",
+            "annotation": "update_alert_status",
+            "parameters": [
+                {
+                    "title": "alertuuid",
+                    "type": "text",
+                    "name": "alertuuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                },
+                {
+                    "title": "Alert Status",
+                    "type": "select",
+                    "name": "status",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "inprogress",
+                    "options": [
+                        "inprogress",
+                        "confirmed",
+                        "closed(duplicate)",
+                        "closed(falsepositive)",
+                        "closed(riskaccepted)",
+                        "closed(resolved)"
+                    ],
+                    "onchange": {
+                        "closed(duplicate)": [
+                            {
+                                "title": "Closure Notes",
+                                "description": "Closure Notes",
+                                "type": "text",
+                                "name": "closure_notes",
+                                "required": true,
+                                "visible": true,
+                                "editable": true
+                            }
+                        ],
+                        "closed(falsepositive)": [
+                            {
+                                "title": "Closure Notes",
+                                "description": "Closure Notes",
+                                "type": "text",
+                                "name": "closure_notes",
+                                "required": true,
+                                "visible": true,
+                                "editable": true
+                            }
+                        ],
+                        "closed(riskaccepted)": [
+                            {
+                                "title": "Closure Notes",
+                                "description": "Closure Notes",
+                                "type": "text",
+                                "name": "closure_notes",
+                                "required": true,
+                                "visible": true,
+                                "editable": true
+                            }
+                        ],
+                        "closed(resolved)": [
+                            {
+                                "title": "Closure Notes",
+                                "description": "Closure Notes",
+                                "type": "text",
+                                "name": "closure_notes",
+                                "required": true,
+                                "visible": true,
+                                "editable": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_alert_list_clientuuid",
+            "title": "Alert - Get Alert Client UUID",
+            "description": "GetAlertListForClient handler retrieve alert list with related client",
+            "category": "investigation",
+            "annotation": "get_alert_list_clientuuid",
+            "parameters": [
+                {
+                    "title": "clientuuid",
+                    "type": "text",
+                    "name": "clientuuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 3d06a179-1a71-4cc4-a986-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_comment_list",
+            "title": "Comment - Get Comment List",
+            "description": "Returns a list of comments, in the specified module, for the specified uuid record",
+            "category": "investigation",
+            "annotation": "get_comment_list",
+            "parameters": [
+                {
+                    "title": "module",
+                    "type": "select",
+                    "name": "module",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "alerts",
+                    "tooltip": "Example : alerts,service_request",
+                    "options": [
+                        "alerts",
+                        "service_request"
+                    ]
+                },
+                {
+                    "title": "uuid",
+                    "type": "text",
+                    "name": "uuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "create_comment",
+            "title": "Comment - Create Comment",
+            "description": "Creates a comment for a particular alert or service request",
+            "category": "investigation",
+            "annotation": "create_comment",
+            "parameters": [
+                {
+                    "title": "module",
+                    "type": "select",
+                    "name": "module",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "alerts",
+                    "tooltip": "Example : alerts,service_request",
+                    "options": [
+                        "alerts",
+                        "service_request"
+                    ]
+                },
+                {
+                    "title": "uuid",
+                    "type": "text",
+                    "name": "uuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                },
+                {
+                    "title": "comment",
+                    "type": "text",
+                    "name": "comment",
+                    "required": true,
+                    "visible": true,
+                    "editable": true
+                },
+                {
+                    "title": "tag",
+                    "type": "text",
+                    "name": "tag",
+                    "required": false,
+                    "visible": true,
+                    "editable": true
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "download_attachment_and_report",
+            "title": "Download Attachment and Report to FortiSOAR",
+            "description": "Returns a JSON response with the file attachment information, module=attachment or report",
+            "category": "investigation",
+            "annotation": "download_attachment_and_report",
+            "parameters": [
+                {
+                    "title": "module",
+                    "type": "select",
+                    "name": "module",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "attachment",
+                    "tooltip": "Example : attachment, report",
+                    "options": [
+                        "attachment",
+                        "report"
+                    ]
+                },
+                {
+                    "title": "file-portal-uuid",
+                    "type": "text",
+                    "name": "file-portal-uuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_list_service_request",
+            "title": "SR - Get List of Service Requests",
+            "description": "Returns the list of Service Requests",
+            "category": "investigation",
+            "annotation": "get_list_service_request",
+            "enabled": true
+        },
+        {
+            "operation": "create_service_request",
+            "title": "SR - Create a Service Requests",
+            "description": "Create a Service Request",
+            "category": "investigation",
+            "annotation": "create_service_request",
+            "parameters": [
+                {
+                    "title": "Type",
+                    "type": "select",
+                    "name": "type",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "type",
+                    "tooltip": "Example : devicedecommissioning",
+                    "options": [
+                        "devicedecommissioning",
+                        "escalationmatrixupdate",
+                        "newmonitoringrequest",
+                        "newreportrequest",
+                        "portalaccess",
+                        "servicedecommissioning",
+                        "serviceenquiry",
+                        "technicalassitance",
+                        "whitelistrequest",
+                        "others"
+                    ]
+                },
+                {
+                    "title": "Title",
+                    "type": "text",
+                    "name": "title",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : \"My new FAZ-Cloud is not forwarding logs\""
+                },
+                {
+                    "title": "Notification email",
+                    "type": "text",
+                    "name": "notification",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : \"foo.bar@contoso.dom\""
+                },
+                {
+                    "title": "Data",
+                    "type": "json",
+                    "name": "data",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "{\"attachment_files\":[{\"content_type\":\"string\",\"file_content\":[0],\"filename\":\"string\"}],\"client_name\":\"string\",\"notes\":\"string\",\"translated_notes\":\"string\",\"translated_title\":\"string\"}"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_details_service_request",
+            "title": "SR - Get Details of a Service Request UUID",
+            "description": "Returns the details of the specified Service Request",
+            "category": "investigation",
+            "annotation": "get_details_service_request",
+            "parameters": [
+                {
+                    "title": "service_request_uuid",
+                    "type": "text",
+                    "name": "service_request_uuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_client_service_request",
+            "title": "SR - Get List of Service Requests for ClientUUID",
+            "description": "Returns a list of Service Requests for a specific clientuuid",
+            "category": "investigation",
+            "annotation": "get_client_service_request",
+            "parameters": [
+                {
+                    "title": "clientuuid",
+                    "type": "text",
+                    "name": "clientuuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_list_reports",
+            "title": "Report - Get List of Reports",
+            "description": "Returns a list of reports",
+            "category": "investigation",
+            "annotation": "get_list_reports",
+            "enabled": true
+        },
+        {
+            "operation": "get_list_reports_client",
+            "title": "Report - Get List of Reports for a Client",
+            "description": "Returns a list of reports for the specified Client",
+            "category": "investigation",
+            "annotation": "get_list_reports_client",
+            "parameters": [
+                {
+                    "title": "clientuuid",
+                    "type": "text",
+                    "name": "clientuuid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "tooltip": "Example : 04b6d298-8af2-4c68-a9b8-0123456789ab"
+                }
+            ],
+            "enabled": true
+        },
+        {
+            "operation": "get_client_list",
+            "title": "MSSP Clients - Get Client List",
+            "description": "GetClientList handler retrieve client list",
+            "category": "investigation",
+            "annotation": "get_client_list",
+            "enabled": true
+        },
+        {
+            "operation": "get_preonboarding_info",
+            "title": "MSSP Clients Onboarding - Get pre-onboarding Info",
+            "description": "Returns pre-onboarding information for a successful MSSP client onboarding request for Onboarded non-OU MSSP",
+            "category": "investigation",
+            "annotation": "get_preonboarding_info",
+            "enabled": true
+        },
+        {
+            "operation": "generic_api_call",
+            "title": "Generic API Call",
+            "description": "Make a generic API call to FortiGuard SOCaaS.",
+            "category": "investigation",
+            "annotation": "generic_api_call",
+            "parameters": [
+                {
+                    "title": "HTTP Method",
+                    "type": "select",
+                    "name": "method",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "options": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "DELETE"
+                    ]
+                },
+                {
+                    "title": "API Endpoint",
+                    "type": "text",
+                    "name": "endpoint",
+                    "required": true,
+                    "visible": true,
+                    "editable": true
+                },
+                {
+                    "title": "Request Data",
+                    "type": "json",
+                    "name": "data",
+                    "required": false,
+                    "visible": true,
+                    "editable": true
+                }
+            ],
+            "enabled": true,
+            "output_schema": {
+                "result": {}
+            }
+        }
+    ],
+    "category": [
+        "Analytics & SIEM"
+    ],
+    "contributor": "ArnaudN",
+    "active": true,
+    "cs_compatible": true,
+    "system": false,
+    "playbook_collections": [
+        {
+            "@id": "/api/3/workflow_collections/04171a1c-718b-4039-a2aa-fbc52a23cdac",
+            "name": "Sample - FortiGuard SOCaaS - 1.0.0",
+            "image": null,
+            "description": "Sample playbooks for \"FortiGuard SOCaaS\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete."
+        }
+    ],
+    "vendor_version": null
+}
