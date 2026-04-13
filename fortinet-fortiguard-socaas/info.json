@@ -1,7 +1,7 @@
 {
-    "name": "fortiguard-socaas",
+    "name": "fortinet-fortiguard-socaas",
     "version": "1.0.0",
-    "label": "FortiGuard SOCaaS",
+    "label": "Fortinet FortiGuard SOCaaS",
     "description": "SOCaaS helps organizations detect threats earlier, respond faster, and strengthen their security posture. By offloading operational complexity, SOCaaS enables security teams to focus on strategic priorities while maintaining continuous protection across their environments.",
     "publisher": "ArnaudN",
     "icon_small_name": "small.png",
