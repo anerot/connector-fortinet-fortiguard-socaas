@@ -11,7 +11,7 @@ from connectors.core.connector import get_logger, ConnectorError
 from integrations.crudhub import make_request, make_file_upload_request
 from connectors.cyops_utilities.builtins import upload_file_to_cyops
 
-logger = get_logger('fortiguard-socaas')
+logger = get_logger('fortinet-fortiguard-socaas')
 
 def get_alert_list(config, params=None):
     co = SOCaaS(config)
